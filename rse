@@ -10840,7 +10840,24 @@
                     }
                     ,
                     t.drawLaser = function(t, e) {
-                        return [];
+                        var i, s, l, n, a, o, r, h;
+                        for (i = t.createRadialGradient(0, 0, 0, 0, 0, .3),
+                        i.addColorStop(0, "rgba(255,255,255,1)"),
+                        i.addColorStop(1, "rgba(255,255,255,.5)"),
+                        t.fillStyle = i,
+                        r = [],
+                        s = 0,
+                        n = e.length; s < n; s++) {
+                            for (h = e[s],
+                            t.beginPath(),
+                            l = 0,
+                            a = h.length; l < a; l++)
+                                o = h[l],
+                                t.lineTo(.3 * o[0], .3 * o[1]);
+                            t.closePath(),
+                            r.push(t.fill())
+                        }
+                        return r
                     }
                     ,
                     t
@@ -10863,7 +10880,7 @@
                         this.type = new Float32Array(this.size),
                         this.opac = new Float32Array(this.size),
                         this.OOOI1 = new Float32Array(this.size),
-                        this.core_size = 500,
+                        this.core_size = 0,
                         this.trail_size = this.size - this.core_size,
                         this.index = this.core_size,
                         this.core_index = 0,
